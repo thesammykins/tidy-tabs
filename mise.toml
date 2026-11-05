@@ -1,0 +1,19 @@
+# Swift comes from Xcode (FoundationModels needs the macOS 26+ SDK). Node builds and packages the extension.
+[tools]
+node = "22"
+
+[tasks.test]
+description = "Run the host's grouping tests"
+run = "swift test --package-path host"
+
+[tasks.build]
+description = "Build the Aside and Chrome extensions (zip, plus CRX when a signing key is present) into dist/"
+run = ["npm ci", "npm run build"]
+
+[tasks.install]
+description = "Build the native host and register it with Aside and Chrome"
+run = "scripts/install-host.sh"
+
+[tasks.uninstall]
+description = "Remove the native host and its browser registrations"
+run = "scripts/uninstall-host.sh"

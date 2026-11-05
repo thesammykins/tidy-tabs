@@ -1,0 +1,8 @@
+host/.build/
+dist/
+node_modules/
+# The CRX signing key. It fixes the extension ID that the native host trusts; CI reads it from the CRX_PRIVATE_KEY secret.
+keys/
+.DS_Store
+# A global "Icon?" rule (for macOS Icon\r files) also matches this folder on case-insensitive filesystems.
+!/extension/icons/
